@@ -1,0 +1,19 @@
+main {
+  padding-top: 30px;
+}
+
+.board-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.board-block{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid #d3d6da;
+  width: 60px;
+  height: 60px;
+  margin: 3px;
+}
