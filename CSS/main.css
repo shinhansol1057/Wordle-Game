@@ -1,5 +1,42 @@
 main {
   padding-top: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.game-over{
+  display:flex; 
+  flex-direction:column; 
+  justify-content:center; 
+  align-items:center; 
+  position:absolute; 
+  top:30vh; 
+  left:40vw; 
+  background-color:rgba(57, 57, 58, 0.9); 
+  width:200px; 
+  height:200px; 
+  border:1px solid white; 
+  border-radius: 50%;
+  color: white;
+  font-weight: bold;
+  font-size: 30px;
+}
+
+.game-over button {
+  margin-top: 20px;
+  width: 100px;
+  height: 30px;
+  background-color: aqua;
+  cursor: pointer;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.timer {
+  font-size: 30px;
+  font-weight: bold;
 }
 
 .board-row {
@@ -16,4 +53,6 @@ main {
   width: 60px;
   height: 60px;
   margin: 3px;
+  font-weight: bold;
+  font-size: 30px;
 }
