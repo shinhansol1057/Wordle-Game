@@ -30,36 +30,29 @@ const appStart = () => {
     
   };
 
-  const answerKeyColor = () => {
-    for (let i = 0; i < 5; i++){
-      const block = document.querySelector(
-        `.board-block[data-index='${attempts}${i}']`
-      );
-      const inputLetter = block.innerHTML;
-      const answer_key = document.querySelector(`#${inputLetter}`);
-      answer_key.style = "background-color:red";
-    }
-    
-  };
-
   const handleEnterKey = async () => {
     // 서버에서 정답을 받아오는 코드
     // const res = await fetch("/answer");
     // const data = await res.json();
     // answer = data.answer;
-
     for (let i = 0; i < 5; i++) {
       const block = document.querySelector(
         `.board-block[data-index='${attempts}${i}']`
       );
       const inputLetter = block.innerHTML;
       const correctLetter = answer[i];
+      const answer_key = document.querySelector(`#${inputLetter}`);
       if (inputLetter === correctLetter) {
         block.style.background = "#6AAA64";
+        answer_key.style.background = "#C9B458"
         count++;
-      } else if (answer.includes(inputLetter))
+      } else if (answer.includes(inputLetter)) {
         block.style.background = "#C9B458";
-      else block.style.background = "#787C7E";
+        answer_key.style.background = "#C9B458";
+      } else {
+        block.style.background = "#787C7E";
+        answer_key.style.background = "#787C7E";
+      }
       block.style.color = "white";
     }
 
@@ -104,12 +97,13 @@ const appStart = () => {
   }
 
   const handleKeydown = (e) => {
+    console.log(e)
     let key = e.key.toUpperCase();
     let keyCode = e.keyCode;
     const thisBlock = document.querySelector(
       `.board-block[data-index='${attempts}${index}']`
     );
-
+    
     if (key === "BACKSPACE") handleBackspace();
     else if (index === 5) {
       if (key === "ENTER") handleEnterKey();
